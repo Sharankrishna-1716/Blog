@@ -1,4 +1,4 @@
-/* General styles */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,140 +6,340 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #e9f0f4, #f4f9fc);
+  color: #333;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.app-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Add Post Section */
-.add-post textarea {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.add-post button {
-  background-color: #007BFF;
+/* Header */
+header {
+  background: linear-gradient(to right, #1f1c2c, #928dab);
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
 }
 
-.add-post button:hover {
-  background-color: #0056b3;
+header h1 {
+  font-size: 2.8rem;
+  letter-spacing: 1px;
+  animation: slideInDown 1.2s ease-in-out;
 }
 
-/* Post Card */
-.post-list {
-  margin-top: 20px;
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 50%;
+  background: #ff8a00;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  background-color: #1f1c2c;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Blog Feed */
+.blog-info {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f4f4f9);
+  margin: 30px 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.blog-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.blog-info p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Post Feed */
+.post-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 30px;
+  animation: fadeInUp 1s ease-in-out;
 }
 
 .post-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  background: linear-gradient(135deg, #fff, #f9f9f9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .post-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.post-content {
-  margin-bottom: 15px;
+.post-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.post-content p {
-  font-size: 18px;
-  line-height: 1.5;
+.post-card:hover img {
+  transform: scale(1.05);
 }
 
-.edit-btn, .delete-btn {
-  background-color: #ff6f61;
+.post-card h3 {
+  padding: 15px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.post-card p {
+  padding: 0 15px 15px;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.post-card .read-more {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  color: white;
+  text-decoration: none;
+  margin: 10px 15px;
+  border-radius: 6px;
+  transition: background 0.3s ease-in-out;
+}
+
+.post-card .read-more:hover {
+  background: linear-gradient(to right, #e52e71, #ff8a00);
+}
+
+/* Create Post Form */
+form {
+  max-width: 650px;
+  margin: 40px auto;
+  background: linear-gradient(to bottom, #fff, #f4f4f9);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
+}
+
+form textarea,
+form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+form textarea:focus,
+form input:focus {
+  border-color: #ff8a00;
+  outline: none;
+}
+
+form button {
+  padding: 12px 25px;
+  background: linear-gradient(to right, #ff8a00, #e52e71);
   color: white;
   border: none;
-  padding: 5px 15px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+  transition: background 0.3s ease-in-out;
 }
 
-.edit-btn:hover, .delete-btn:hover {
-  background-color: #d95d4d;
+form button:hover {
+  background: linear-gradient(to right, #e52e71, #ff8a00);
 }
 
-.save-btn {
-  background-color: #28a745;
+/* Profile Page */
+.profile-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(to bottom, #fff, #f4f4f9);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.profile-card img {
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  margin-right: 20px;
+  border: 4px solid #ff8a00;
+}
+
+.profile-card button {
+  padding: 12px 20px;
+  background: linear-gradient(to right, #ff8a00, #e52e71);
   color: white;
   border: none;
-  padding: 5px 15px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease-in-out;
 }
 
-.save-btn:hover {
-  background-color: #218838;
+.profile-card button:hover {
+  background: linear-gradient(to right, #e52e71, #ff8a00);
 }
 
-/* Comments Section */
-.comments-section {
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* src/pages/Profile.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f8fa;
+  font-family: Arial, sans-serif;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 80px auto 40px; /* Space below Navbar */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #1da1f2;
+  object-fit: cover;
+}
+
+.profile-info h2 {
+  margin: 0;
+  color: #14171a;
+  font-size: 22px;
+}
+
+.profile-info p {
+  margin: 4px 0;
+  color: #657786;
+  font-size: 14px;
+}
+
+.edit-profile {
   margin-top: 20px;
 }
 
-.comments-section textarea {
+.edit-profile h3 {
+  margin-bottom: 12px;
+  color: #14171a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 10px;
+  border: 1px solid #ccd6dd;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.comments-section button {
-  background-color: #28a745;
+button {
+  padding: 10px 20px;
+  background-color: #1da1f2;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background 0.3s ease;
 }
 
-.comments-section button:hover {
-  background-color: #218838;
+button:hover {
+  background-color: #0c85d0;
 }
 
-.comments {
-  margin-top: 15px;
-}
-
-.comment {
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 5px;
+button:disabled {
+  background-color: #ccd6dd;
+  cursor: not-allowed;
 }
